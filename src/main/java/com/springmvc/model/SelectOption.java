@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Resembles select options
+ * Reflects select options
  * name - select option name
  */
 @Entity

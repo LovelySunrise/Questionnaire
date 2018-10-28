@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Resembles different browser events
+ * Reflects different browser events
  * name - event name
  */
 @Entity

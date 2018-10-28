@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 /**
- * Resembles layouts which consist of elements
+ * Reflects layouts which consist of elements
  * name - layout name
  * isForm - identifies that layout is a form
  * note - layout description

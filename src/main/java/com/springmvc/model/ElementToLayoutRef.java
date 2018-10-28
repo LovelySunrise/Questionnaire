@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * Resembles element to layout links
+ * Reflects element to layout links
  */
 @Entity
 @Table(name="ELEMENT_TO_LAYOUT_REF")

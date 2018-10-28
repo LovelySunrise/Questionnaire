@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Resembles JavaScript functions
+ * Reflects JavaScript functions
  * value - javascript function name in main js source or entire function itself
  */
 @Entity

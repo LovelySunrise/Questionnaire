@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * Resembles element to browser event and it's handler function links
+ * Reflects element to browser event and it's handler function links
  */
 @Entity
 @Table(name="ELEMENT_TO_EVENT_REF")

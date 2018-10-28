@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * Resembles select element to it's options references
+ * Reflects select element to it's options references
  */
 @Entity
 @Table(name="SELECT_ELEMENT_TO_SELECT_OPTION_REF")

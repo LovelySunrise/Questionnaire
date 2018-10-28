@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Resembles customized html tags (like input, select, button etc.)
+ * Reflects customized html tags (like input, select, button etc.)
  * type - tag name
  * name - name parameter (to make schema more simple - name will be used to fill html id property)
  * style - style parameter
