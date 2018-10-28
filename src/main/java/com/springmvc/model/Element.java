@@ -12,9 +12,12 @@ import javax.validation.constraints.Size;
 /**
  * Resembles customized html tags (like input, select, button etc.)
  * type - tag name
- * name - name parameter
+ * name - name parameter (to make schema more simple - name will be used to fill html id property)
  * style - style parameter
  * classId - css class (ref to dictionary table CssClass)
+ * ----------------------------------------------------------------
+ * If type is set as TEXT - element works as a simple text record
+ * with value stored in name
  */
 @Entity
 @Table(name="ELEMENT")

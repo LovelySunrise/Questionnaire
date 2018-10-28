@@ -1,8 +1,8 @@
-package com.springmvc.service;
+package com.springmvc.dao;
 
 import com.springmvc.model.CssClass;
 
-public interface CssClassService {
+public interface CssClassDao {
 
     CssClass findById(int id);
 }

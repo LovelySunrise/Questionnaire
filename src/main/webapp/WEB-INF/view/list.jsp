@@ -5,16 +5,27 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Start page</title>
+    <title>List page</title>
     <script src="//code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
-    <script src="<c:url value='/resources/js/script.js' />" type="text/javascript"></script>
-    <link type="text/css" href="<c:url value="/resources/css/main.css"/>" rel="stylesheet" />
+
 </head>
 
 
+<body>
+<h2>List of Records</h2>
+<table>
+    <tr>
+        <td>Id</td><td>Layout id</td><td>Value</td>
+    </tr>
+    <c:forEach items="${records}" var="record">
+        <tr>
+            <td>${record.id}</td>
+            <td>${record.layoutId}</td>
+            <td>${record.value}</td>
+        </tr>
+    </c:forEach>
+</table>
 <br>
-${generatedHtmlLayout}
-<br>
-<a style="display: block" href="<c:url value='/list' />">Go to records</a>
+<a href="<c:url value='/index' />">Go to form</a>
 </body>
 </html>

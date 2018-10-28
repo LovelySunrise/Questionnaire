@@ -1,31 +1,23 @@
 package com.springmvc.controller;
 
 import java.util.List;
-import java.util.Locale;
 
-import javax.validation.Valid;
-
+import com.springmvc.model.FormRecord;
 import com.springmvc.model.Layout;
+import com.springmvc.service.FormRecordService;
 import com.springmvc.service.LayoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.springmvc.model.Element;
-import com.springmvc.service.ElementService;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
 public class AppController {
 
     @Autowired
-    ElementService service;
+    FormRecordService formRecordService;
 
     @Autowired
     LayoutService layoutService;
@@ -33,19 +25,49 @@ public class AppController {
     @Autowired
     MessageSource messageSource;
 
-    /*
-     * This method will list all existing elements.
+    /**
+     * Main form, sql scripts for creating this form stored in db folder in fill_schema file (tested on MySql)
+     * Generates form and put it into the index.jsp page
      */
-    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
-    public String listElements(ModelMap model) {
-
-//        List<Element> elements = service.findAll();
-//        model.addAttribute("elements", elements);
-
-        Layout layout = layoutService.findByName("hello");
-        model.addAttribute("elements", layout);
+    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    public String startPage(ModelMap model) {
+        String layout = layoutService.getHtmlViewByName("startPage");
+        model.addAttribute("generatedHtmlLayout", layout);
         return "index";
     }
 
+    /**
+     * Url for saving records from the main form
+     * Accepts post requests with form filled parameters
+     * @param name - Name input of the main form
+     * @param surname - Surname input of the main form
+     * @param nickname - Nickname input of the main form
+     * @param day - Day select input of the main form
+     * @return 1 - if record has been saved, 0 - if not
+     */
+    @RequestMapping(value = { "/saveStartPageFormData" }, method = RequestMethod.POST)
+    public @ResponseBody String saveEmployee(@RequestParam("name") String name,
+                                             @RequestParam("surname") String surname,
+                                             @RequestParam("nickname") String nickname,
+                                             @RequestParam("day") String day){
+        FormRecord formRecord = new FormRecord();
+        Layout layout = layoutService.findByName("startPage");
+        if(layout!=null) {
+            formRecord.setLayoutId(layout.getId());
+            formRecord.setValue("Name: "+name+"; Surname: "+surname+"; Nickname: "+nickname+"; Favourite day: "+day);
+            formRecordService.saveFormRecord(formRecord);
+            return "1";
+        }
+        return "0";
+    }
 
+    /**
+     * Shows all stored records (form submitted data)
+     */
+    @RequestMapping(value = { "/list", "/show" }, method = RequestMethod.GET)
+    public String listElements(ModelMap model) {
+        List<FormRecord> formRecords = formRecordService.findAll();
+        model.addAttribute("records", formRecords);
+        return "list";
+    }
 }

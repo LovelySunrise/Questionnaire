@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 /**
  * Resembles layouts which consist of elements
  * name - layout name
+ * isForm - identifies that layout is a form
  * note - layout description
  */
 @Entity
@@ -20,6 +21,9 @@ public class Layout {
     @Column(name = "NAME", nullable = true)
     private String name;
 
+    @Column(name = "IS_FORM", nullable = true)
+    private boolean isForm;
+
     @Size(max=1000)
     @Column(name = "NOTE", nullable = true)
     private String note;
@@ -30,6 +34,14 @@ public class Layout {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean getIsForm() {
+        return isForm;
+    }
+
+    public void setIsForm(boolean isForm) {
+        this.isForm = isForm;
     }
 
     public String getName() {
@@ -46,5 +58,13 @@ public class Layout {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public boolean isForm() {
+        return isForm;
+    }
+
+    public void setForm(boolean form) {
+        isForm = form;
     }
 }

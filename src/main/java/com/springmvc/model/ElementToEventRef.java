@@ -9,9 +9,14 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="ELEMENT_TO_EVENT_REF")
 public class ElementToEventRef {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @NotNull
+    @Column(name = "ELEMENT_ID", nullable = false)
+    private int elementId;
 
     @NotNull
     @Column(name = "EVENT_TYPE_ID", nullable = false)
@@ -27,6 +32,14 @@ public class ElementToEventRef {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getElementId() {
+        return elementId;
+    }
+
+    public void setElementId(int elementId) {
+        this.elementId = elementId;
     }
 
     public int getEventId() {

@@ -1,8 +1,8 @@
-package com.springmvc.service;
+package com.springmvc.dao;
 
 import com.springmvc.model.SelectOption;
 
-public interface SelectOptionService {
+public interface SelectOptionDao {
 
     SelectOption findById(int id);
 }

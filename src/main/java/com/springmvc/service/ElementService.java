@@ -8,5 +8,5 @@ public interface ElementService {
 
     Element findById(int id);
 
-    List<Element> findAll();
+    String getHtmlViewById(int id);
 }

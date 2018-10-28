@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="CSS_CLASS")
 public class CssClass {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

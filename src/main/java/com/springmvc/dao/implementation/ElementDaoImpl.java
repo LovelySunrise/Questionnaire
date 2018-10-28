@@ -8,16 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("employeeDao")
+@Repository("elementDao")
 public class ElementDaoImpl extends AbstractDao<Integer, Element> implements ElementDao {
 
     public Element findById(int id) {
         return getByKey(id);
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<Element> findAll(){
-        Criteria criteria = createEntityCriteria();
-        return (List<Element>) criteria.list();
     }
 }

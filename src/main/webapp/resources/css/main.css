@@ -1,0 +1,39 @@
+body {
+    background-color: #5aa8fb;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    font-family: 'Raleway';
+    justify-content: center;
+}
+
+.iMain {
+    width: 100%;
+    color: black;
+    border: none;
+    outline: none;
+    padding: 5px 0;
+    line-height: 1;
+    font-size: 16px;
+    font-family: 'Raleway';
+    border-bottom: solid 1px white;
+    background-color: transparent;
+}
+
+.bMain {
+    width: 100%;
+    padding: 10px;
+    color: #00a7ee;
+    margin-top: 10px;
+    max-width: 400px;
+    text-align: center;
+    border: solid 1px white;
+    background-color: white;
+    transition: color 0.2s ease-in, background-color 0.2s ease-in;
+}
+
+.bMain:hover {
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+}
