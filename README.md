@@ -10,9 +10,9 @@ Although all html tag's parameters can be independent from external sources and 
 to specify values which are defined in main css and js files which are uploaded to the client side as static resources.
 
 
-../; ../index [GET] - view main form
-../saveStartPageFormData [POST] - will save submitted data from form (this url is used to send data to the server transparently by ajax)
-../list; ../show [GET] - show all recorded data from form
+../ [GET]; ../index [GET] - view main form <br>
+../saveStartPageFormData [POST] - will save submitted data from form (this url is used to send data to the server transparently by ajax)<br>
+../list [GET]; ../show [GET] - show all recorded data from form
 
 Scripts for creating database schema could be found in db/create_schema
 Scripts to fill database with main form which is used in base route could be found in db/fill_schema
